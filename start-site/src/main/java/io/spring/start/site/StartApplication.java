@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.util.Arrays;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.baseframework.initializr.web.support.BfInitializrMetadataUpdateStrategy;
 import io.spring.initializr.generator.spring.code.kotlin.InitializrMetadataKotlinVersionResolver;
 import io.spring.initializr.generator.spring.code.kotlin.KotlinVersionResolver;
 import io.spring.initializr.metadata.InitializrMetadataProvider;
@@ -29,7 +30,6 @@ import io.spring.initializr.web.support.InitializrMetadataUpdateStrategy;
 import io.spring.start.site.extension.ProjectDescriptionCustomizerConfiguration;
 import io.spring.start.site.kotlin.CompositeKotlinVersionResolver;
 import io.spring.start.site.kotlin.ManagedDependenciesKotlinVersionResolver;
-import io.spring.start.site.support.StartInitializrMetadataUpdateStrategy;
 import io.spring.start.site.web.HomeController;
 
 import org.springframework.boot.SpringApplication;
@@ -63,7 +63,9 @@ public class StartApplication {
 	@Bean
 	public InitializrMetadataUpdateStrategy startMetadataUpdateStrategy(RestTemplateBuilder restTemplateBuilder,
 			ObjectMapper objectMapper) {
-		return new StartInitializrMetadataUpdateStrategy(restTemplateBuilder.build(), objectMapper);
+		// return new StartInitializrMetadataUpdateStrategy(restTemplateBuilder.build(),
+		// objectMapper);
+		return new BfInitializrMetadataUpdateStrategy(restTemplateBuilder.build(), objectMapper);
 	}
 
 	@Bean

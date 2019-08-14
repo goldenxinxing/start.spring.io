@@ -25,6 +25,7 @@
 	<modules>
 		<module>start-client</module>
 		<module>start-site</module>
+		<module>start-bf-web</module>
 	</modules>
 
 	<profiles>

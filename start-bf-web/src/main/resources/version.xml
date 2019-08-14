@@ -1,0 +1,284 @@
+<Project>
+    <id>spring-boot</id>
+    <name>Spring Boot</name>
+    <repoUrl>http://github.com/spring-projects/spring-boot</repoUrl>
+    <siteUrl>http://spring.io/projects/spring-boot</siteUrl>
+    <category>active</category>
+    <rawBootConfig/>
+    <renderedBootConfig/>
+    <rawOverview>
+        Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just
+        run".
+
+        We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum
+        fuss. Most Spring Boot applications need very little Spring configuration.
+
+        == Features
+        * Create stand-alone Spring applications
+        * Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
+        * Provide opinionated 'starter' dependencies to simplify your build configuration
+        * Automatically configure Spring and 3rd party libraries whenever possible
+        * Provide production-ready features such as metrics, health checks and externalized configuration
+        * Absolutely no code generation and no requirement for XML configuration
+
+        You can also join the https://gitter.im/spring-projects/spring-boot[Spring Boot community on Gitter]!
+
+        == Talks and videos
+        *
+        https://content.pivotal.io/springone-platform-2017/its-a-kind-of-magic-under-the-covers-of-spring-boot-brian-clozel-st%C3%A9phane-nicoll[It’s
+        a Kind of Magic: Under the Covers of Spring Boot]
+        *
+        https://content.pivotal.io/springone-platform-2017/whats-new-in-spring-boot-2-0-phillip-webb-madhura-bhave[What’s
+        New in Spring Boot 2.0]
+        * https://content.pivotal.io/webinars/mar-13-introducing-spring-boot-2-0-webinar[Introducing Spring Boot 2.0
+        webinar]
+        *
+        https://content.pivotal.io/springone-platform-2017/test-driven-development-with-spring-boot-sannidhi-jalukar-madhura-bhave[Test
+        Driven Development with Spring Boot]
+        * https://content.pivotal.io/springone-platform-2017/from-zero-to-hero-with-spring-boot-brian-clozel[From Zero
+        to Hero with Spring Boot 2.0]
+    </rawOverview>
+    <renderedOverview>
+        <div class="paragraph">
+            <p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can
+                "just run".
+            </p>
+        </div>
+        <div class="paragraph">
+            <p>We take an opinionated view of the Spring platform and third-party libraries so you can get started with
+                minimum fuss. Most Spring Boot applications need very little Spring configuration.
+            </p>
+        </div>
+        <div class="sect1">
+            <h2 id="features"><a class="anchor" href="#features"></a>Features
+            </h2>
+            <div class="sectionbody">
+                <div class="ulist">
+                    <ul>
+                        <li>
+                            <p>Create stand-alone Spring applications</p>
+                        </li>
+                        <li>
+                            <p>Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)</p>
+                        </li>
+                        <li>
+                            <p>Provide opinionated 'starter' dependencies to simplify your build configuration</p>
+                        </li>
+                        <li>
+                            <p>Automatically configure Spring and 3rd party libraries whenever possible</p>
+                        </li>
+                        <li>
+                            <p>Provide production-ready features such as metrics, health checks and externalized
+                                configuration
+                            </p>
+                        </li>
+                        <li>
+                            <p>Absolutely no code generation and no requirement for XML configuration</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="paragraph">
+                    <p>You can also join the <a href="https://gitter.im/spring-projects/spring-boot">Spring Boot
+                        community on Gitter</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="sect1">
+            <h2 id="talks-and-videos"><a class="anchor" href="#talks-and-videos"></a>Talks and videos
+            </h2>
+            <div class="sectionbody">
+                <div class="ulist">
+                    <ul>
+                        <li>
+                            <p>
+                                <a href="https://content.pivotal.io/springone-platform-2017/its-a-kind-of-magic-under-the-covers-of-spring-boot-brian-clozel-st%C3%A9phane-nicoll">
+                                    It’s a Kind of Magic: Under the Covers of Spring Boot
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://content.pivotal.io/springone-platform-2017/whats-new-in-spring-boot-2-0-phillip-webb-madhura-bhave">
+                                    What’s New in Spring Boot 2.0
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://content.pivotal.io/webinars/mar-13-introducing-spring-boot-2-0-webinar">
+                                    Introducing Spring Boot 2.0 webinar
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://content.pivotal.io/springone-platform-2017/test-driven-development-with-spring-boot-sannidhi-jalukar-madhura-bhave">
+                                    Test Driven Development with Spring Boot
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://content.pivotal.io/springone-platform-2017/from-zero-to-hero-with-spring-boot-brian-clozel">
+                                    From Zero to Hero with Spring Boot 2.0
+                                </a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- rendered by Sagan Renderer Service -->
+    </renderedOverview>
+    <displayOrder>1</displayOrder>
+    <childProjectList/>
+    <stackOverflowTags>spring-boot</stackOverflowTags>
+    <projectSamples>
+        <projectSamples>
+            <title>Sagan</title>
+            <description>
+                The Spring Boot application behind the spring.io website
+            </description>
+            <url>https://github.com/spring-io/sagan</url>
+            <displayOrder>1</displayOrder>
+        </projectSamples>
+        <projectSamples>
+            <title>Initializr</title>
+            <description>start.spring.io, powered by Spring Boot</description>
+            <url>https://github.com/spring-io/initializr</url>
+            <displayOrder>2</displayOrder>
+        </projectSamples>
+    </projectSamples>
+    <projectReleases>
+        <projectReleases>
+            <releaseStatus>GENERAL_AVAILABILITY</releaseStatus>
+            <refDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/
+            </refDocUrl>
+            <apiDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/api/
+            </apiDocUrl>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>2.1.7.RELEASE</version>
+            <snapshot>false</snapshot>
+            <preRelease>false</preRelease>
+            <current>true</current>
+            <versionDisplayName>2.1.7</versionDisplayName>
+            <generalAvailability>true</generalAvailability>
+            <bootInfo>
+                <releaseStatus>GENERAL_AVAILABILITY</releaseStatus>
+                <refDocUrl>
+                    https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/reference/html/
+                </refDocUrl>
+                <apiDocUrl>
+                    https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/api/
+                </apiDocUrl>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>1.5.22.RELEASE</version>
+                <snapshot>false</snapshot>
+                <preRelease>false</preRelease>
+                <current>false</current>
+                <versionDisplayName>1.5.22</versionDisplayName>
+                <generalAvailability>true</generalAvailability>
+            </bootInfo>
+        </projectReleases>
+
+    </projectReleases>
+    <topLevelProject>true</topLevelProject>
+    <mostCurrentRelease>
+        <present>true</present>
+    </mostCurrentRelease>
+    <nonMostCurrentReleases>
+        <nonMostCurrentReleases>
+            <releaseStatus>PRERELEASE</releaseStatus>
+            <refDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.2.0.M5/reference/html/
+            </refDocUrl>
+            <apiDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.2.0.M5/api/
+            </apiDocUrl>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <repository>
+                <id>spring-milestones</id>
+                <name>Spring Milestones</name>
+                <url>https://repo.spring.io/libs-milestone</url>
+                <snapshotsEnabled>false</snapshotsEnabled>
+            </repository>
+            <version>2.2.0.M5</version>
+            <snapshot>false</snapshot>
+            <preRelease>true</preRelease>
+            <current>false</current>
+            <versionDisplayName>2.2.0 M5</versionDisplayName>
+            <generalAvailability>false</generalAvailability>
+        </nonMostCurrentReleases>
+        <nonMostCurrentReleases>
+            <releaseStatus>SNAPSHOT</releaseStatus>
+            <refDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.2.0.BUILD-SNAPSHOT/reference/html/
+            </refDocUrl>
+            <apiDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.2.0.BUILD-SNAPSHOT/api/
+            </apiDocUrl>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <repository>
+                <id>spring-snapshots</id>
+                <name>Spring Snapshots</name>
+                <url>https://repo.spring.io/libs-snapshot</url>
+                <snapshotsEnabled>true</snapshotsEnabled>
+            </repository>
+            <version>2.2.0.BUILD-SNAPSHOT</version>
+            <snapshot>true</snapshot>
+            <preRelease>false</preRelease>
+            <current>false</current>
+            <versionDisplayName>2.2.0</versionDisplayName>
+            <generalAvailability>false</generalAvailability>
+        </nonMostCurrentReleases>
+        <nonMostCurrentReleases>
+            <releaseStatus>SNAPSHOT</releaseStatus>
+            <refDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.1.8.BUILD-SNAPSHOT/reference/html/
+            </refDocUrl>
+            <apiDocUrl>
+                https://docs.spring.io/spring-boot/docs/2.1.8.BUILD-SNAPSHOT/api/
+            </apiDocUrl>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <repository>
+                <id>spring-snapshots</id>
+                <name>Spring Snapshots</name>
+                <url>https://repo.spring.io/libs-snapshot</url>
+                <snapshotsEnabled>true</snapshotsEnabled>
+            </repository>
+            <version>2.1.8.BUILD-SNAPSHOT</version>
+            <snapshot>true</snapshot>
+            <preRelease>false</preRelease>
+            <current>false</current>
+            <versionDisplayName>2.1.8</versionDisplayName>
+            <generalAvailability>false</generalAvailability>
+        </nonMostCurrentReleases>
+        <nonMostCurrentReleases>
+            <releaseStatus>GENERAL_AVAILABILITY</releaseStatus>
+            <refDocUrl>
+                https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/reference/html/
+            </refDocUrl>
+            <apiDocUrl>
+                https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/api/
+            </apiDocUrl>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>1.5.22.RELEASE</version>
+            <snapshot>false</snapshot>
+            <preRelease>false</preRelease>
+            <current>false</current>
+            <versionDisplayName>1.5.22</versionDisplayName>
+            <generalAvailability>true</generalAvailability>
+        </nonMostCurrentReleases>
+    </nonMostCurrentReleases>
+    <stackOverflowTagList>
+        <stackOverflowTagList>spring-boot</stackOverflowTagList>
+    </stackOverflowTagList>
+</Project>
