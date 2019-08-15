@@ -169,35 +169,129 @@ initializr:
               - rel: reference
                 href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#configuration-metadata-annotation-processor
   dependencies:
+    - name: autoconfigure
+      content:
+        - name: autoconfigure
+          id: base-autoconfigure
+          groupId: com.megvii.framework
+          artifactId: base-autoconfigure
+          scope: runtime
+          description: 自动配置组件.
+          starter: true
     - name: starters
       content:
-          - name: messageStarter
-            id: message-starter
+          - name: Message Starter
+            id: base-message-starter
             groupId: com.megvii.framework
             artifactId: base-message-starter
             scope: runtime
-            description: 消息组件.
+            description: 消息组件，提供消息国际化功能，包括传统的内容及validator组件的验证信息国际化.
             starter: true
             links:
               - rel: reference
                 href: https://wiki.megvii-inc.com/x/6l4tBQ
-          - name: 222
-            id: 222
-            groupId: org.projectlombok
-            artifactId: lombok
-            scope: annotationProcessor
-            description: Java annotation library which helps to reduce boilerplate code.
-            starter: false
-          - name: 333
-            id: 333
-            groupId: org.springframework.boot
-            artifactId: spring-boot-configuration-processor
-            scope: annotationProcessor
-            description: Generate metadata for developers to offer contextual help and “code completion” when working with custom configuration keys (ex.application.properties/.yml files).
-            starter: false
+          - name: Format Starter
+            id: base-format-starter
+            groupId: com.megvii.framework
+            artifactId: base-format-starter
+            scope: runtime
+            description: 格式化组件，针对正常api输出和异常进行统一控制，返回最终规范格式.
+            starter: true
             links:
               - rel: reference
-                href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#configuration-metadata-annotation-processor
+                href: https://wiki.megvii-inc.com/x/n5MaBQ
+          - name: Log Starter
+            id: base-log-starter
+            groupId: com.megvii.framework
+            artifactId: base-log-starter
+            scope: runtime
+            description: 日志组件，提供级别动态调整，基于注解方式，进行日志相关配置.
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/6BjRB
+          - name: Monitor Starter
+            id: base-monitor-starter
+            groupId: com.megvii.framework
+            artifactId: base-monitor-starter
+            scope: runtime
+            description: 提供健康检查接口及扩展机制，默认实现有ftp、kafka、http、es、jms、等
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/3xjRB
+          - name: Mybatis Starter
+            id: base-mybatis-starter
+            groupId: com.megvii.framework
+            artifactId: base-mybatis-starter
+            scope: runtime
+            description: mybatis组件，引入tk-mybatis和分页组件pagehelper
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/odqBB
+          - name: Redis Starter
+            id: base-redis-starter
+            groupId: com.megvii.framework
+            artifactId: base-redis-starter
+            scope: runtime
+            description: redis组件，将redis、redisson配置统一化
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/OjoMBg
+          - name: Redisson Starter
+            id: base-redisson-starter
+            groupId: com.megvii.framework
+            artifactId: base-redisson-starter
+            scope: runtime
+            description: 基于redisson的分布式锁功能组件
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/m9beB
+          - name: Scheduled Starter
+            id: base-scheduled-starter
+            groupId: com.megvii.framework
+            artifactId: base-scheduled-starter
+            scope: runtime
+            description: Scheduled组件，提供对于分布式场景、单体场景下支持
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/6gUMBg
+          - name: Swagger Starter
+            id: base-swagger-starter
+            groupId: com.megvii.framework
+            artifactId: base-swagger-starter
+            scope: runtime
+            description: swagger组件，提供swagger的通用配置，引入即可使用swagger
+            starter: true
+            links:
+              - rel: reference
+                href: https://wiki.megvii-inc.com/x/dLt8BQ
+    - name: Foundation
+      content:
+        - name: Utils
+          id: base-foundation-utils
+          groupId: com.megvii.framework
+          artifactId: base-foundation-utils
+          scope: runtime
+          description: 提供常用工具类
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/pages/viewpage.action?pageId=85627803
+        - name: 7z Utils
+          id: base-foundation-7z-utils
+          groupId: com.megvii.framework
+          artifactId: base-foundation-7z-utils
+          scope: runtime
+          description: 7z解压缩工具，强大的解压缩能力，使解压缩更加健壮，需要在运行环境安装7z环境
+          starter: true
+          links:
+            - rel: reference
+              href:
     - name: Developer Tools
       content:
         - name: Spring Boot DevTools

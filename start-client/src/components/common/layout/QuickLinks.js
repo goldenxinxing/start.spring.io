@@ -35,7 +35,7 @@ class QuickLinks extends React.Component {
   render() {
     return (
       <ul className='quick-links'>
-        <li>
+        {/*<li>
           <a
             href='https://github.com/spring-io/start.spring.io'
             rel='noreferrer noopener'
@@ -56,7 +56,7 @@ class QuickLinks extends React.Component {
             <IconTwitter />
             Twitter
           </a>
-        </li>
+        </li>*/}
         <li>
           <a
             href='/'
@@ -73,6 +73,20 @@ class QuickLinks extends React.Component {
           </a>
           {this.state.help && (
             <ul className='dropdown-menu' ref={this.setWrapperRef}>
+              <li>
+                <a
+                    id='ql-help-projects'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://wiki.megvii-inc.com/x/zQ1wB'
+                    tabIndex='-1'
+                    onClick={() => {
+                      this.setState({ help: false })
+                    }}
+                >
+                  Base Framework Projects
+                </a>
+              </li>
               <li>
                 <a
                   id='ql-help-projects'
