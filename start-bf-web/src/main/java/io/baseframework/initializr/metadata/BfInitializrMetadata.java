@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 public class BfInitializrMetadata extends InitializrMetadata {
 
-	private final DependenciesCapability bfDependencies;
+	private final BfDependenciesCapability bfDependencies;
 
 	private final SingleSelectCapability bfVersions;
 
@@ -25,12 +25,12 @@ public class BfInitializrMetadata extends InitializrMetadata {
 
 	public BfInitializrMetadata(InitializrConfiguration configuration) {
 		super(configuration);
-		this.bfDependencies = new DependenciesCapability();
+		this.bfDependencies = new BfDependenciesCapability();
 		this.bfVersions = new SingleSelectCapability("baseFrameworkVersion", "baseFramework Version",
 				"base framework version");
 	}
 
-	public DependenciesCapability getBfDependencies() {
+	public BfDependenciesCapability getBfDependencies() {
 		return bfDependencies;
 	}
 

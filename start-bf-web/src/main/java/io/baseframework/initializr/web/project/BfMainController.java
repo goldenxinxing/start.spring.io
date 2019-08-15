@@ -86,10 +86,10 @@ public class BfMainController extends AbstractInitializrController {
 
 	private final CommandLineHelpGenerator commandLineHelpGenerator;
 
-	private final ProjectGenerationInvoker projectGenerationInvoker;
+	private final BfProjectGenerationInvoker projectGenerationInvoker;
 
 	public BfMainController(InitializrMetadataProvider metadataProvider, TemplateRenderer templateRenderer,
-			DependencyMetadataProvider dependencyMetadataProvider, ProjectGenerationInvoker projectGenerationInvoker) {
+			DependencyMetadataProvider dependencyMetadataProvider, BfProjectGenerationInvoker projectGenerationInvoker) {
 		super(metadataProvider);
 		this.dependencyMetadataProvider = dependencyMetadataProvider;
 		this.commandLineHelpGenerator = new CommandLineHelpGenerator(templateRenderer);
@@ -97,8 +97,8 @@ public class BfMainController extends AbstractInitializrController {
 	}
 
 	@ModelAttribute
-	public ProjectRequest projectRequest(@RequestHeader Map<String, String> headers) {
-		WebProjectRequest request = new WebProjectRequest();
+	public BfProjectRequest projectRequest(@RequestHeader Map<String, String> headers) {
+		BfWebProjectRequest request = new BfWebProjectRequest();
 		request.getParameters().putAll(headers);
 		request.initialize(this.metadataProvider.get());
 		return request;
@@ -110,7 +110,7 @@ public class BfMainController extends AbstractInitializrController {
 		return this.metadataProvider.get();
 	}
 
-	@RequestMapping(path = "/", produces = "text/plain")
+	/*@RequestMapping(path = "/", produces = "text/plain")
 	public ResponseEntity<String> serviceCapabilitiesText(
 			@RequestHeader(value = HttpHeaders.USER_AGENT, required = false) String userAgent) throws IOException {
 		String appUrl = generateAppUrl();
@@ -136,7 +136,7 @@ public class BfMainController extends AbstractInitializrController {
 		}
 		String content = this.commandLineHelpGenerator.generateGenericCapabilities(metadata, appUrl);
 		return builder.eTag(createUniqueId(content)).body(content);
-	}
+	}*/
 
 	@RequestMapping(path = { "/", "/bf/metadata/client" }, produces = "application/hal+json")
 	public ResponseEntity<String> serviceCapabilitiesHal() {
@@ -206,15 +206,15 @@ public class BfMainController extends AbstractInitializrController {
 
 	@RequestMapping(path = { "/bf/pom", "/bf/pom.xml" })
 	@ResponseBody
-	public ResponseEntity<byte[]> pom(ProjectRequest request) {
+	public ResponseEntity<byte[]> pom(BfProjectRequest request) {
 		request.setType("maven-build");
 		byte[] mavenPom = this.projectGenerationInvoker.invokeBuildGeneration(request);
 		return createResponseEntity(mavenPom, "application/octet-stream", "pom.xml");
 	}
 
-	@RequestMapping(path = { "/build", "/build.gradle" })
+	@RequestMapping(path = { "/bf/build", "/bf/build.gradle" })
 	@ResponseBody
-	public ResponseEntity<byte[]> gradle(ProjectRequest request) {
+	public ResponseEntity<byte[]> gradle(BfProjectRequest request) {
 		request.setType("gradle-build");
 		byte[] gradleBuild = this.projectGenerationInvoker.invokeBuildGeneration(request);
 		return createResponseEntity(gradleBuild, "application/octet-stream", "build.gradle");
@@ -222,8 +222,8 @@ public class BfMainController extends AbstractInitializrController {
 
 	@RequestMapping("/bf/starter.zip")
 	@ResponseBody
-	public ResponseEntity<byte[]> springZip(ProjectRequest request) throws IOException {
-		ProjectGenerationResult result = this.projectGenerationInvoker.invokeProjectStructureGeneration(request);
+	public ResponseEntity<byte[]> springZip(BfProjectRequest request) throws IOException {
+		BfProjectGenerationResult result = this.projectGenerationInvoker.invokeProjectStructureGeneration(request);
 		Path archive = createArchive(result, "zip", ZipArchiveOutputStream::new, ZipArchiveEntry::new,
 				(entry, mode) -> entry.setUnixMode(mode));
 		return upload(archive, result.getRootDirectory(), generateFileName(request, "zip"), "application/zip");
@@ -231,8 +231,8 @@ public class BfMainController extends AbstractInitializrController {
 
 	@RequestMapping(path = "/bf/starter.tgz", produces = "application/x-compress")
 	@ResponseBody
-	public ResponseEntity<byte[]> springTgz(ProjectRequest request) throws IOException {
-		ProjectGenerationResult result = this.projectGenerationInvoker.invokeProjectStructureGeneration(request);
+	public ResponseEntity<byte[]> springTgz(BfProjectRequest request) throws IOException {
+		BfProjectGenerationResult result = this.projectGenerationInvoker.invokeProjectStructureGeneration(request);
 		Path archive = createArchive(result, "tar.gz", this::createTarArchiveOutputStream, TarArchiveEntry::new,
 				(entry, mode) -> entry.setMode(mode));
 		return upload(archive, result.getRootDirectory(), generateFileName(request, "tar.gz"),
@@ -248,7 +248,7 @@ public class BfMainController extends AbstractInitializrController {
 		}
 	}
 
-	private <T extends ArchiveEntry> Path createArchive(ProjectGenerationResult result, String fileExtension,
+	private <T extends ArchiveEntry> Path createArchive(BfProjectGenerationResult result, String fileExtension,
 			Function<OutputStream, ? extends ArchiveOutputStream> archiveOutputStream,
 			BiFunction<File, String, T> archiveEntry, BiConsumer<T, Integer> setMode) throws IOException {
 		Path archive = this.projectGenerationInvoker.createDistributionFile(result.getRootDirectory(),
@@ -290,7 +290,7 @@ public class BfMainController extends AbstractInitializrController {
 		return UnixStat.FILE_FLAG | (entryName.equals(wrapperScript) ? 0755 : UnixStat.DEFAULT_FILE_PERM);
 	}
 
-	private String generateFileName(ProjectRequest request, String extension) {
+	private String generateFileName(BfProjectRequest request, String extension) {
 		String candidate = (StringUtils.hasText(request.getArtifactId()) ? request.getArtifactId()
 				: this.metadataProvider.get().getArtifactId().getContent());
 		String tmp = candidate.replaceAll(" ", "_");

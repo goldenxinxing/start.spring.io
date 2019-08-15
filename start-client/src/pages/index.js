@@ -59,6 +59,7 @@ class IndexPage extends React.Component {
       project: get(json, 'type.default'),
       language: get(json, 'language.default'),
       boot: get(json, 'bootVersion.default'),
+      baseFramework: get(json, 'baseFrameworkVersion.default'),
       meta: {
         name: get(json, 'name.default'),
         group: get(json, 'groupId.default'),
@@ -99,6 +100,10 @@ class IndexPage extends React.Component {
       boot: get(json, 'bootVersion.values', []).map(boot => ({
         key: `${boot.id}`,
         text: `${boot.name}`,
+      })),
+      baseFramework: get(json, 'baseFrameworkVersion.values', []).map(baseframework => ({
+        key: `${baseframework.id}`,
+        text: `${baseframework.name}`,
       })),
       meta: {
         java: get(json, 'javaVersion.values', []).map(java => ({
@@ -262,12 +267,13 @@ class IndexPage extends React.Component {
 
   retrieveBlob = () => {
     return new Promise((resolve, reject) => {
-      const { project, language, boot, meta } = this.state
+      const { project, language, boot, meta, baseFramework } = this.state
       const url = `${this.props.data.site.edges[0].node.siteMetadata.apiZip}`
       const params = querystring.stringify({
         type: project,
         language: language,
         bootVersion: boot,
+        baseFrameworkVersion: baseFramework,
         baseDir: meta.artifact,
         groupId: meta.group,
         artifactId: meta.artifact,
@@ -422,6 +428,23 @@ class IndexPage extends React.Component {
                 />
               ) : (
                 <Placeholder type='radios' count={3} width='73px' />
+              )}
+            </div>
+          </div>
+          <div className='colset'>
+            <div className='left'>Base Framework</div>
+            <div className='right'>
+              {get(this.state, 'complete') ? (
+                  <RadioGroup
+                      name='baseframework'
+                      selected={this.state.baseFramework}
+                      options={this.lists.baseFramework}
+                      onChange={value => {
+                        this.setState({ baseFramework: value })
+                      }}
+                  />
+              ) : (
+                  <Placeholder type='radios' count={5} width='105px' />
               )}
             </div>
           </div>

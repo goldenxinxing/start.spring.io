@@ -17,7 +17,11 @@
 package io.baseframework.initializr.web.autoconfigure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.baseframework.initializr.metadata.BfInitializrMetadataBuilder;
+import io.baseframework.initializr.metadata.BfInitializrProperties;
 import io.baseframework.initializr.web.project.BfMainController;
+import io.baseframework.initializr.web.project.BfProjectGenerationInvoker;
+import io.baseframework.initializr.web.project.BfProjectRequestToDescriptionConverter;
 import io.baseframework.initializr.web.support.BfDependencyMetadataProvider;
 import io.baseframework.initializr.web.support.BfInitializrMetadataProvider;
 import io.baseframework.initializr.web.support.BfInitializrMetadataUpdateStrategy;
@@ -28,9 +32,6 @@ import io.spring.initializr.generator.io.template.TemplateRenderer;
 import io.spring.initializr.generator.project.ProjectDirectoryFactory;
 import io.spring.initializr.metadata.*;
 import io.spring.initializr.web.autoconfigure.InitializrAutoConfiguration;
-import io.spring.initializr.web.autoconfigure.InitializrWebConfig;
-import io.spring.initializr.web.project.ProjectGenerationInvoker;
-import io.spring.initializr.web.project.ProjectRequestToDescriptionConverter;
 import io.spring.initializr.web.support.InitializrMetadataUpdateStrategy;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -60,7 +61,7 @@ import java.nio.file.Files;
  * @author Stephane Nicoll
  */
 @Configuration
-@EnableConfigurationProperties(InitializrProperties.class)
+@EnableConfigurationProperties(BfInitializrProperties.class)
 @AutoConfigureAfter({ JacksonAutoConfiguration.class, RestTemplateAutoConfiguration.class })
 @AutoConfigureBefore(InitializrAutoConfiguration.class)
 public class BfInitializrAutoConfiguration {
@@ -105,9 +106,9 @@ public class BfInitializrAutoConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean(InitializrMetadataProvider.class)
-	public InitializrMetadataProvider initializrMetadataProvider(InitializrProperties properties,
+	public InitializrMetadataProvider initializrMetadataProvider(BfInitializrProperties properties,
 			InitializrMetadataUpdateStrategy initializrMetadataUpdateStrategy) {
-		InitializrMetadata metadata = InitializrMetadataBuilder.fromInitializrProperties(properties).build();
+		InitializrMetadata metadata = BfInitializrMetadataBuilder.fromBfInitializrProperties(properties).build();
 		return new BfInitializrMetadataProvider(metadata, initializrMetadataUpdateStrategy);
 	}
 
@@ -124,32 +125,32 @@ public class BfInitializrAutoConfiguration {
 	@ConditionalOnWebApplication
 	static class InitializrWebConfiguration {
 
-		@Bean
+		/*@Bean
 		InitializrWebConfig initializrWebConfig() {
 			return new InitializrWebConfig();
 		}
-
+*/
 		@Bean
 		@ConditionalOnMissingBean
-		BfMainController initializrMainController(InitializrMetadataProvider metadataProvider,
+		BfMainController initializrBfMainController(InitializrMetadataProvider metadataProvider,
 				TemplateRenderer templateRenderer, DependencyMetadataProvider dependencyMetadataProvider,
-				ProjectGenerationInvoker projectGenerationInvoker) {
+				BfProjectGenerationInvoker projectGenerationInvoker) {
 			return new BfMainController(metadataProvider, templateRenderer, dependencyMetadataProvider,
 					projectGenerationInvoker);
 		}
 
 		@Bean
 		@ConditionalOnMissingBean
-		ProjectGenerationInvoker projectGenerationInvoker(ApplicationContext applicationContext,
-				ApplicationEventPublisher eventPublisher,
-				ProjectRequestToDescriptionConverter projectRequestToDescriptionConverter) {
-			return new ProjectGenerationInvoker(applicationContext, eventPublisher,
+		BfProjectGenerationInvoker bfProjectGenerationInvoker(ApplicationContext applicationContext,
+															ApplicationEventPublisher eventPublisher,
+															  BfProjectRequestToDescriptionConverter projectRequestToDescriptionConverter) {
+			return new BfProjectGenerationInvoker(applicationContext, eventPublisher,
 					projectRequestToDescriptionConverter);
 		}
 
 		@Bean
-		ProjectRequestToDescriptionConverter projectRequestToDescriptionConverter() {
-			return new ProjectRequestToDescriptionConverter();
+		BfProjectRequestToDescriptionConverter bfProjectRequestToDescriptionConverter() {
+			return new BfProjectRequestToDescriptionConverter();
 		}
 
 		/*

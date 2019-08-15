@@ -20,9 +20,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import io.spring.initializr.metadata.DefaultMetadataElement;
-import org.springframework.web.client.RestTemplate;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +53,7 @@ class BfMetadataReader {
 	 * @throws IOException on load error
 	 */
 	BfMetadataReader(ObjectMapper objectMapper) throws IOException {
-		this.content = objectMapper.readTree(new File("version.xml"));
+		this.content = objectMapper.readTree(this.getClass().getResourceAsStream("/version.json"));
 		ArrayNode releases = (ArrayNode) this.content.get("projectReleases");
 		List<DefaultMetadataElement> list = new ArrayList<>();
 		for (JsonNode node : releases) {
@@ -67,12 +65,13 @@ class BfMetadataReader {
 			version.setDefault(node.get("current").booleanValue());
 			bflist.add(version);
 
+			DefaultMetadataElement bootVersion = new DefaultMetadataElement();
 			JsonNode bootNode = node.get("bootInfo");
-			version.setId(bootNode.get("version").textValue());
+			bootVersion.setId(bootNode.get("version").textValue());
 			String bootname = bootNode.get("versionDisplayName").textValue();
-			version.setName(bootNode.get("snapshot").booleanValue() ? bootname + " (SNAPSHOT)" : bootname);
-			version.setDefault(bootNode.get("current").booleanValue());
-			bootlist.add(version);
+			bootVersion.setName(bootNode.get("snapshot").booleanValue() ? bootname + " (SNAPSHOT)" : bootname);
+			bootVersion.setDefault(bootNode.get("current").booleanValue());
+			bootlist.add(bootVersion);
 		}
 	}
 

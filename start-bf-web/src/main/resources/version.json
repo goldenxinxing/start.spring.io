@@ -1,0 +1,61 @@
+{
+  "id": "spring-boot",
+  "name": "Spring Boot",
+  "repoUrl": "http://github.com/spring-projects/spring-boot",
+  "siteUrl": "http://spring.io/projects/spring-boot",
+  "category": "active",
+  "rawBootConfig": "",
+  "renderedBootConfig": "",
+  "displayOrder": 1,
+  "childProjectList": [],
+  "stackOverflowTags": "spring-boot",
+  "projectSamples": [
+    {
+      "title": "Sagan",
+      "description": "The Spring Boot application behind the spring.io website",
+      "url": "https://github.com/spring-io/sagan",
+      "displayOrder": 1
+    },
+    {
+      "title": "Initializr",
+      "description": "start.spring.io, powered by Spring Boot",
+      "url": "https://github.com/spring-io/initializr",
+      "displayOrder": 2
+    }
+  ],
+  "projectReleases": [
+    {
+      "releaseStatus": "GENERAL_AVAILABILITY",
+      "refDocUrl": "https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/",
+      "apiDocUrl": "https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/api/",
+      "groupId": "com.megvii.framework",
+      "artifactId": "base-framework",
+      "version": "1.0.1.RELEASE",
+      "snapshot": false,
+      "current": true,
+      "preRelease": false,
+      "versionDisplayName": "1.0.1",
+      "generalAvailability": true,
+      "bootInfo": {
+        "releaseStatus": "GENERAL_AVAILABILITY",
+        "refDocUrl": "https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/reference/html/",
+        "apiDocUrl": "https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/api/",
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot",
+        "version": "1.5.21.RELEASE",
+        "snapshot": false,
+        "current": false,
+        "preRelease": false,
+        "versionDisplayName": "1.5.21",
+        "generalAvailability": true
+      }
+    }
+  ],
+  "mostCurrentRelease": {
+    "present": true
+  },
+  "stackOverflowTagList": [
+    "spring-boot"
+  ],
+  "topLevelProject": true
+}
