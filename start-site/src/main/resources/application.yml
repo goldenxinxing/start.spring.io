@@ -1184,22 +1184,22 @@ initializr:
         format: build
       default: false
       action: /pom.xml
-    - name: Gradle Project
-      id: gradle-project
-      description: Generate a Gradle based project archive
-      tags:
-        build: gradle
-        format: project
-      default: false
-      action: /starter.zip
-    - name: Gradle Config
-      id: gradle-build
-      description: Generate a Gradle build file
-      tags:
-        build: gradle
-        format: build
-      default: false
-      action: /build.gradle
+#    - name: Gradle Project
+#      id: gradle-project
+#      description: Generate a Gradle based project archive
+#      tags:
+#        build: gradle
+#        format: project
+#      default: false
+#      action: /starter.zip
+#    - name: Gradle Config
+#      id: gradle-build
+#      description: Generate a Gradle build file
+#      tags:
+#        build: gradle
+#        format: build
+#      default: false
+#      action: /build.gradle
   packagings:
     - name: Jar
       id: jar
@@ -1219,12 +1219,12 @@ initializr:
     - name: Java
       id: java
       default: true
-    - name: Kotlin
-      id: kotlin
-      default: false
-    - name: Groovy
-      id: groovy
-      default: false
+#    - name: Kotlin
+#      id: kotlin
+#      default: false
+#    - name: Groovy
+#      id: groovy
+#      default: false
   bootVersions:
     - name: Latest SNAPSHOT
       id: 2.2.0.BUILD-SNAPSHOT

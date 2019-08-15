@@ -89,7 +89,7 @@ public class StartApplication {
 			InitializrMetadataProvider metadataProvider) {
 		return new CompositeKotlinVersionResolver(
 				Arrays.asList(new ManagedDependenciesKotlinVersionResolver(versionResolver),
-						new InitializrMetadataKotlinVersionResolver(metadataProvider)));
+						new InitializrMetadataKotlinVersionResolver(metadataProvider.get())));
 	}
 
 }
