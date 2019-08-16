@@ -1,12 +1,12 @@
 const isDev = process.env.NODE_ENV === 'development'
 
 const siteMetadata = {
-  title: `Spring Initializr`,
-  description: `Initializr generates spring boot project with just what you need to start quickly!`,
+  title: `Base Framework Initializr`,
+  description: `Initializr generates base framework project with just what you need to start quickly!`,
   twitter: `@springboot`,
   canonical: `https://start.spring.io`,
   author: `@springboot`,
-  image: `https://cocky-roentgen-4351af.netlify.com/images/initializr-card.jpg`,
+  image: `https://myhome.megvii-inc.com/assets/img/logo2.png`,
   apiUrl: isDev ? `/api.json` : `/bf/metadata/client`,
   apiZip: `/bf/starter.zip`,
 }
