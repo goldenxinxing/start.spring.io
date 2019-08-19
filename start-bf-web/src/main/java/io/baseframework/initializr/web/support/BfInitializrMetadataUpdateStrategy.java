@@ -18,6 +18,7 @@ package io.baseframework.initializr.web.support;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.baseframework.initializr.metadata.BfInitializrMetadata;
+import io.baseframework.initializr.metadata.BfMetadataElement;
 import io.spring.initializr.metadata.DefaultMetadataElement;
 import io.spring.initializr.metadata.InitializrMetadata;
 import io.spring.initializr.web.support.InitializrMetadataUpdateStrategy;
@@ -59,7 +60,7 @@ public class BfInitializrMetadataUpdateStrategy implements InitializrMetadataUpd
 			current.updateSpringBootVersions(bootVersions);
 		}
 		if (current instanceof BfInitializrMetadata) {
-			List<DefaultMetadataElement> bfVersions = bfMetadataReader.getBflist();
+			List<BfMetadataElement> bfVersions = bfMetadataReader.getBflist();
 			if (bfVersions != null && !bfVersions.isEmpty()) {
 				if (bfVersions.stream().noneMatch(DefaultMetadataElement::isDefault)) {
 					// No default specified

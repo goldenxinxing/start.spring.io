@@ -38,7 +38,7 @@ public class BfInitializrMetadata extends InitializrMetadata {
 		return bfVersions;
 	}
 
-	public void updateBaseFrameworkVersions(List<DefaultMetadataElement> versionsMetadata) {
+	public void updateBaseFrameworkVersions(List<BfMetadataElement> versionsMetadata) {
 		this.bfVersions.getContent().clear();
 		this.bfVersions.getContent().addAll(versionsMetadata);
 		List<Version> bfVersions = this.bfVersions.getContent().stream().map((it) -> {

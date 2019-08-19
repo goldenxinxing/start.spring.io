@@ -104,6 +104,7 @@ class IndexPage extends React.Component {
       baseFramework: get(json, 'baseFrameworkVersion.values', []).map(baseframework => ({
         key: `${baseframework.id}`,
         text: `${baseframework.name}`,
+        bindVersion: `${baseframework.bindVersion}`
       })),
       meta: {
         java: get(json, 'javaVersion.values', []).map(java => ({
@@ -439,8 +440,10 @@ class IndexPage extends React.Component {
                       name='baseframework'
                       selected={this.state.baseFramework}
                       options={this.lists.baseFramework}
-                      onChange={value => {
-                        this.setState({ baseFramework: value })
+                      onChange={(value,bindVersion) => {
+                        this.setState({ baseFramework: value }, function () {
+                          this.setState({ boot: bindVersion })
+                        })
                       }}
                   />
               ) : (
@@ -456,6 +459,7 @@ class IndexPage extends React.Component {
                   name='boot'
                   selected={this.state.boot}
                   options={this.lists.boot}
+                  disabled={true}
                   onChange={value => {
                     this.setState({ boot: value })
                   }}

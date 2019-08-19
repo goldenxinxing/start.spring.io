@@ -3,8 +3,9 @@ import React from 'react'
 
 class Radio extends React.Component {
   onClick = event => {
-    event.preventDefault()
-    this.props.handler(this.props.value)
+    event.preventDefault();
+    console.log()
+    this.props.handler(this.props.value, this.props.bindVersion)
   }
 
   render() {
@@ -35,6 +36,7 @@ Radio.propTypes = {
   checked: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  bindVersion: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 }

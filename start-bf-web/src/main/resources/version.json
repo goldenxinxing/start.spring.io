@@ -49,6 +49,31 @@
         "versionDisplayName": "1.5.21",
         "generalAvailability": true
       }
+    },{
+      "releaseStatus": "GENERAL_AVAILABILITY",
+      "refDocUrl": "https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/",
+      "apiDocUrl": "https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/api/",
+      "groupId": "com.megvii.framework",
+      "artifactId": "base-framework",
+      "version": "2.0.0.SNAPSHOT",
+      "snapshot": true,
+      "current": false,
+      "preRelease": false,
+      "versionDisplayName": "2.0.0",
+      "generalAvailability": true,
+      "bootInfo": {
+        "releaseStatus": "GENERAL_AVAILABILITY",
+        "refDocUrl": "https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/reference/html/",
+        "apiDocUrl": "https://docs.spring.io/spring-boot/docs/1.5.22.RELEASE/api/",
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot",
+        "version": "2.1.16.RELEASE",
+        "snapshot": false,
+        "current": false,
+        "preRelease": false,
+        "versionDisplayName": "2.1.16",
+        "generalAvailability": true
+      }
     }
   ],
   "mostCurrentRelease": {

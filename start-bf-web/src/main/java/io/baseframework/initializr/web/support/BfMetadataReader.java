@@ -19,6 +19,7 @@ package io.baseframework.initializr.web.support;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import io.baseframework.initializr.metadata.BfMetadataElement;
 import io.spring.initializr.metadata.DefaultMetadataElement;
 
 import java.io.IOException;
@@ -37,13 +38,13 @@ class BfMetadataReader {
 
 	private List<DefaultMetadataElement> bootlist = new ArrayList<>();
 
-	private List<DefaultMetadataElement> bflist = new ArrayList<>();
+	private List<BfMetadataElement> bflist = new ArrayList<>();
 
 	public List<DefaultMetadataElement> getBootlist() {
 		return bootlist;
 	}
 
-	public List<DefaultMetadataElement> getBflist() {
+	public List<BfMetadataElement> getBflist() {
 		return bflist;
 	}
 
@@ -58,19 +59,22 @@ class BfMetadataReader {
 		List<DefaultMetadataElement> list = new ArrayList<>();
 		for (JsonNode node : releases) {
 			// bf Version
-			DefaultMetadataElement version = new DefaultMetadataElement();
+			BfMetadataElement version = new BfMetadataElement();
 			version.setId(node.get("version").textValue());
 			String name = node.get("versionDisplayName").textValue();
 			version.setName(node.get("snapshot").booleanValue() ? name + " (SNAPSHOT)" : name);
 			version.setDefault(node.get("current").booleanValue());
-			bflist.add(version);
-
+			// boot Version
 			DefaultMetadataElement bootVersion = new DefaultMetadataElement();
 			JsonNode bootNode = node.get("bootInfo");
 			bootVersion.setId(bootNode.get("version").textValue());
 			String bootname = bootNode.get("versionDisplayName").textValue();
 			bootVersion.setName(bootNode.get("snapshot").booleanValue() ? bootname + " (SNAPSHOT)" : bootname);
 			bootVersion.setDefault(bootNode.get("current").booleanValue());
+
+			// 绑定关系
+			version.setBindVersion(bootVersion);
+			bflist.add(version);
 			bootlist.add(bootVersion);
 		}
 	}
