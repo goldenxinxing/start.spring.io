@@ -30,6 +30,8 @@ initializr:
         artifactId: azure-spring-boot-bom
         versionProperty: azure.version
         mappings:
+          - compatibilityRange: "[1.5.4.RELEASE,2.0.0.RELEASE)"
+            version: 0.2.4
           - compatibilityRange: "[2.0.0.RELEASE,2.1.0.RELEASE)"
             version: 2.0.10
           - compatibilityRange: "2.1.0.RELEASE"
@@ -39,68 +41,77 @@ initializr:
         artifactId: spring-boot-admin-dependencies
         versionProperty: spring-boot-admin.version
         mappings:
+          - compatibilityRange: "[1.5.9.RELEASE,2.0.0.M1)"
+            version: 1.5.7
           - compatibilityRange: "[2.0.0.M1,2.1.0.M1)"
             version: 2.0.6
           - compatibilityRange: "[2.1.0.M1,2.2.0.M1)"
             version: 2.1.5
-      spring-cloud:
-        groupId: org.springframework.cloud
-        artifactId: spring-cloud-dependencies
-        versionProperty: spring-cloud.version
-        order: 50
-        mappings:
-          - compatibilityRange: "[2.0.0.M3, 2.0.0.M5)"
-            version: Finchley.M2
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.0.M5, 2.0.0.M5]"
-            version: Finchley.M3
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.0.M6, 2.0.0.M6]"
-            version: Finchley.M4
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.0.M7, 2.0.0.M7]"
-            version: Finchley.M5
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.0.RC1, 2.0.0.RC1]"
-            version: Finchley.M6
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.0.RC2,2.0.0.RC2]"
-            version: Finchley.M7
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.0.RELEASE,2.0.0.RELEASE]"
-            version: Finchley.M9
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.1.RELEASE,2.0.2.RELEASE)"
-            version: Finchley.RC1
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.2.RELEASE,2.0.3.RELEASE)"
-            version: Finchley.RC2
-            repositories: spring-milestones
-          - compatibilityRange: "[2.0.3.RELEASE,2.0.x.BUILD-SNAPSHOT)"
-            version: Finchley.SR4
-          - compatibilityRange: "[2.0.x.BUILD-SNAPSHOT,2.1.0.M3)"
-            version: Finchley.BUILD-SNAPSHOT
-            repositories: spring-snapshots,spring-milestones
-          - compatibilityRange: "[2.1.0.M3,2.1.0.RELEASE)"
-            version: Greenwich.M1
-            repositories: spring-milestones
-          - compatibilityRange: "[2.1.0.RELEASE,2.1.x.BUILD-SNAPSHOT)"
-            version: Greenwich.SR2
-          - compatibilityRange: "[2.1.x.BUILD-SNAPSHOT,2.2.0.M4)"
-            version: Greenwich.BUILD-SNAPSHOT
-            repositories: spring-snapshots,spring-milestones
-          - compatibilityRange: "[2.2.0.M4,2.2.0.M5]"
-            version: Hoxton.M1
-            repositories: spring-milestones
-          - compatibilityRange: "2.2.0.BUILD-SNAPSHOT"
-            version: Hoxton.BUILD-SNAPSHOT
-            repositories: spring-snapshots,spring-milestones
+#      spring-cloud:
+#        groupId: org.springframework.cloud
+#        artifactId: spring-cloud-dependencies
+#        versionProperty: spring-cloud.version
+#        order: 50
+#        mappings:
+#          - compatibilityRange: "[1.5.0.RELEASE,1.5.x.RELEASE]"
+#            version: Edgware.SR6
+#          - compatibilityRange: "[1.5.x.BUILD-SNAPSHOT,2.0.0.M1)"
+#            version: Edgware.BUILD-SNAPSHOT
+#            repositories: spring-snapshots,spring-milestones
+#          - compatibilityRange: "[2.0.0.M3, 2.0.0.M5)"
+#            version: Finchley.M2
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.0.M5, 2.0.0.M5]"
+#            version: Finchley.M3
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.0.M6, 2.0.0.M6]"
+#            version: Finchley.M4
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.0.M7, 2.0.0.M7]"
+#            version: Finchley.M5
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.0.RC1, 2.0.0.RC1]"
+#            version: Finchley.M6
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.0.RC2,2.0.0.RC2]"
+#            version: Finchley.M7
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.0.RELEASE,2.0.0.RELEASE]"
+#            version: Finchley.M9
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.1.RELEASE,2.0.2.RELEASE)"
+#            version: Finchley.RC1
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.2.RELEASE,2.0.3.RELEASE)"
+#            version: Finchley.RC2
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.0.3.RELEASE,2.0.x.BUILD-SNAPSHOT)"
+#            version: Finchley.SR4
+#          - compatibilityRange: "[2.0.x.BUILD-SNAPSHOT,2.1.0.M3)"
+#            version: Finchley.BUILD-SNAPSHOT
+#            repositories: spring-snapshots,spring-milestones
+#          - compatibilityRange: "[2.1.0.M3,2.1.0.RELEASE)"
+#            version: Greenwich.M1
+#            repositories: spring-milestones
+#          - compatibilityRange: "[2.1.0.RELEASE,2.1.x.BUILD-SNAPSHOT)"
+#            version: Greenwich.SR2
+#          - compatibilityRange: "[2.1.x.BUILD-SNAPSHOT,2.2.0.M4)"
+#            version: Greenwich.BUILD-SNAPSHOT
+#            repositories: spring-snapshots,spring-milestones
+#          - compatibilityRange: "[2.2.0.M4,2.2.0.M5]"
+#            version: Hoxton.M1
+#            repositories: spring-milestones
+#          - compatibilityRange: "2.2.0.BUILD-SNAPSHOT"
+#            version: Hoxton.BUILD-SNAPSHOT
+#            repositories: spring-snapshots,spring-milestones
       spring-cloud-services:
         groupId: io.pivotal.spring.cloud
         artifactId: spring-cloud-services-dependencies
         versionProperty: spring-cloud-services.version
-        additionalBoms: [spring-cloud]
+        #additionalBoms: [spring-cloud]
         mappings:
+          - compatibilityRange: "[1.5.0.RELEASE,1.5.x.BUILD-SNAPSHOT]"
+            version: 1.6.6.RELEASE
           - compatibilityRange: "[2.0.0.RELEASE,2.0.x.BUILD-SNAPSHOT]"
             version: 2.0.3.RELEASE
           - compatibilityRange: "2.1.0.RELEASE"
@@ -123,6 +134,8 @@ initializr:
         artifactId: vaadin-bom
         versionProperty: vaadin.version
         mappings:
+          - compatibilityRange: "[1.5.0.RELEASE,2.0.0.M1)"
+            version: 8.8.5
           - compatibilityRange: "[2.0.0.M1,2.1.0.M1)"
             version: 10.0.16
           - compatibilityRange: "2.1.0.M1"
@@ -887,7 +900,7 @@ initializr:
             - rel: reference
               href: https://codecentric.github.io/spring-boot-admin/current/#getting-started
     - name: Spring Cloud
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Cloud Bootstrap
           id: cloud-starter
@@ -915,7 +928,7 @@ initializr:
           groupId: org.springframework.cloud
           artifactId: spring-cloud-starter-task
     - name: Spring Cloud Security
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Cloud Security
           id: cloud-security
@@ -933,7 +946,7 @@ initializr:
           id: cloud-connectors
           description: Simplifies the process of connecting to services and gaining operating environment awareness in cloud platforms such as Cloud Foundry and Heroku.
         - name: Open Service Broker
-          bom: spring-cloud
+          #bom: spring-cloud
           id: open-service-broker
           description: Framework for building Spring Boot apps that implement the Open Service Broker API, which can deliver services to applications running within cloud native platforms such as Cloud Foundry, Kubernetes and OpenShift.
           groupId: org.springframework.cloud
@@ -951,7 +964,7 @@ initializr:
               href: https://github.com/spring-cloud-samples/bookstore-service-broker
               description: Using Spring Cloud Open Service Broker
         - name: Contract Verifier
-          bom: spring-cloud
+          #bom: spring-cloud
           id: cloud-contract-verifier
           description: Moves TDD to the level of software architecture by enabling Consumer Driven Contract (CDC) development.
           groupId: org.springframework.cloud
@@ -962,14 +975,14 @@ initializr:
               href: https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract.html#_spring_cloud_contract_verifier_setup
               description: Spring Cloud Contract Verifier Setup
         - name: Contract Stub Runner
-          bom: spring-cloud
+          #bom: spring-cloud
           id: cloud-contract-stub-runner
           description: Stub Runner for HTTP/Messaging based communication. Allows creating WireMock stubs from RestDocs tests.
           groupId: org.springframework.cloud
           artifactId: spring-cloud-starter-contract-stub-runner
           scope: test
     - name: Spring Cloud Config
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Config Client
           id: cloud-config-client
@@ -1004,7 +1017,7 @@ initializr:
           artifactId: spring-cloud-starter-consul-config
           starter: false
     - name: Spring Cloud Discovery
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Eureka Discovery Client
           id: cloud-eureka
@@ -1037,7 +1050,7 @@ initializr:
           groupId: org.springframework.cloud
           artifactId: spring-cloud-starter-consul-discovery
     - name: Spring Cloud Routing
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Zuul
           id: cloud-zuul
@@ -1072,7 +1085,7 @@ initializr:
           groupId: org.springframework.cloud
           artifactId: spring-cloud-starter-openfeign
     - name: Spring Cloud Circuit Breaker
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Hystrix
           id: cloud-hystrix
@@ -1100,7 +1113,7 @@ initializr:
           artifactId: spring-cloud-starter-netflix-turbine-stream
           weight: -1
     - name: Spring Cloud Tracing
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Sleuth
           id: cloud-starter-sleuth
@@ -1113,7 +1126,7 @@ initializr:
           groupId: org.springframework.cloud
           artifactId: spring-cloud-starter-zipkin
     - name: Spring Cloud Messaging
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: Cloud Bus
           id: cloud-bus
@@ -1161,7 +1174,7 @@ initializr:
             - rel: reference
               href: https://docs.pivotal.io/spring-cloud-services/
     - name: Amazon Web Services
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: AWS Core
           id: cloud-aws
@@ -1226,7 +1239,7 @@ initializr:
             - rel: reference
               href: https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-starters/azure-storage-spring-boot-starter
     - name: Google Cloud Platform
-      bom: spring-cloud
+      #bom: spring-cloud
       content:
         - name: GCP Support
           id: cloud-gcp
@@ -1326,7 +1339,6 @@ initializr:
     - name: 2.1.1.
       id: 2.1.1.RELEASE
       default: true
-
 ---
 
 spring:

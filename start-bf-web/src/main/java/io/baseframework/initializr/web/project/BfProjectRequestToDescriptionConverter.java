@@ -65,7 +65,8 @@ public class BfProjectRequestToDescriptionConverter {
 		description.setName(getName(request, metadata));
 		description.setPackageName(getPackageName(request, metadata));
 		description.setPackaging(Packaging.forId(request.getPackaging()));
-		description.setPlatformVersion(Version.parse(baseFrameworkVersion));
+		description.setParentVersion(Version.parse(baseFrameworkVersion));
+		description.setPlatformVersion(Version.parse(springBootVersion));
 		description.setVersion(determineValue(request.getVersion(), () -> metadata.getVersion().getContent()));
 		resolvedDependencies.forEach((dependency) -> description.addDependency(dependency.getId(),
 				MetadataBuildItemMapper.toDependency(dependency)));
