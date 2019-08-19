@@ -452,7 +452,7 @@ class IndexPage extends React.Component {
             </div>
           </div>
           <div className='colset'>
-            <div className='left'>Spring Boot</div>
+            <div className='left'>Spring Boot<div className="read-only">(read only)</div></div>
             <div className='right'>
               {get(this.state, 'complete') ? (
                 <RadioGroup
