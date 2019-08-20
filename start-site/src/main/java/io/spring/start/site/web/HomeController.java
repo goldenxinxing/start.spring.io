@@ -15,8 +15,13 @@
  */
 package io.spring.start.site.web;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -27,8 +32,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
+	private static String LANG = "lang";
+
 	@GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
-	public String home() {
+	public String home(HttpServletRequest request, HttpServletResponse response) {
+		String lang = request.getParameter(LANG);
+		if (!StringUtils.isEmpty(lang)) {
+			response.addCookie(new Cookie("lang", lang.toLowerCase()));
+		}
 		return "forward:index.html";
 	}
 

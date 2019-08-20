@@ -233,7 +233,7 @@ public class BfProjectRequestToDescriptionConverter {
 	}
 
 	private List<Dependency> getResolvedDependencies(BfProjectRequest request, String springBootVersion,
-                                                     BfInitializrMetadata metadata) {
+			BfInitializrMetadata metadata) {
 		List<String> depIds = (!request.getStyle().isEmpty() ? request.getStyle() : request.getDependencies());
 		Version requestedVersion = Version.parse(springBootVersion);
 		return depIds.stream().map((it) -> {

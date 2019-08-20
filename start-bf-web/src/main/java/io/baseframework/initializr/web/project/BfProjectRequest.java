@@ -38,4 +38,5 @@ public class BfProjectRequest extends ProjectRequest {
 	}
 
 	private String baseFrameworkVersion;
+
 }

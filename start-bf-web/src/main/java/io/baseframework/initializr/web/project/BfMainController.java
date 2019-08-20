@@ -89,7 +89,8 @@ public class BfMainController extends AbstractInitializrController {
 	private final BfProjectGenerationInvoker projectGenerationInvoker;
 
 	public BfMainController(InitializrMetadataProvider metadataProvider, TemplateRenderer templateRenderer,
-			DependencyMetadataProvider dependencyMetadataProvider, BfProjectGenerationInvoker projectGenerationInvoker) {
+			DependencyMetadataProvider dependencyMetadataProvider,
+			BfProjectGenerationInvoker projectGenerationInvoker) {
 		super(metadataProvider);
 		this.dependencyMetadataProvider = dependencyMetadataProvider;
 		this.commandLineHelpGenerator = new CommandLineHelpGenerator(templateRenderer);
@@ -110,33 +111,28 @@ public class BfMainController extends AbstractInitializrController {
 		return this.metadataProvider.get();
 	}
 
-	/*@RequestMapping(path = "/", produces = "text/plain")
-	public ResponseEntity<String> serviceCapabilitiesText(
-			@RequestHeader(value = HttpHeaders.USER_AGENT, required = false) String userAgent) throws IOException {
-		String appUrl = generateAppUrl();
-		InitializrMetadata metadata = this.metadataProvider.get();
-
-		BodyBuilder builder = ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN);
-		if (userAgent != null) {
-			Agent agent = Agent.fromUserAgent(userAgent);
-			if (agent != null) {
-				if (AgentId.CURL.equals(agent.getId())) {
-					String content = this.commandLineHelpGenerator.generateCurlCapabilities(metadata, appUrl);
-					return builder.eTag(createUniqueId(content)).body(content);
-				}
-				if (AgentId.HTTPIE.equals(agent.getId())) {
-					String content = this.commandLineHelpGenerator.generateHttpieCapabilities(metadata, appUrl);
-					return builder.eTag(createUniqueId(content)).body(content);
-				}
-				if (AgentId.SPRING_BOOT_CLI.equals(agent.getId())) {
-					String content = this.commandLineHelpGenerator.generateSpringBootCliCapabilities(metadata, appUrl);
-					return builder.eTag(createUniqueId(content)).body(content);
-				}
-			}
-		}
-		String content = this.commandLineHelpGenerator.generateGenericCapabilities(metadata, appUrl);
-		return builder.eTag(createUniqueId(content)).body(content);
-	}*/
+	/*
+	 * @RequestMapping(path = "/", produces = "text/plain") public ResponseEntity<String>
+	 * serviceCapabilitiesText(
+	 *
+	 * @RequestHeader(value = HttpHeaders.USER_AGENT, required = false) String userAgent)
+	 * throws IOException { String appUrl = generateAppUrl(); InitializrMetadata metadata
+	 * = this.metadataProvider.get();
+	 *
+	 * BodyBuilder builder = ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN); if
+	 * (userAgent != null) { Agent agent = Agent.fromUserAgent(userAgent); if (agent !=
+	 * null) { if (AgentId.CURL.equals(agent.getId())) { String content =
+	 * this.commandLineHelpGenerator.generateCurlCapabilities(metadata, appUrl); return
+	 * builder.eTag(createUniqueId(content)).body(content); } if
+	 * (AgentId.HTTPIE.equals(agent.getId())) { String content =
+	 * this.commandLineHelpGenerator.generateHttpieCapabilities(metadata, appUrl); return
+	 * builder.eTag(createUniqueId(content)).body(content); } if
+	 * (AgentId.SPRING_BOOT_CLI.equals(agent.getId())) { String content =
+	 * this.commandLineHelpGenerator.generateSpringBootCliCapabilities(metadata, appUrl);
+	 * return builder.eTag(createUniqueId(content)).body(content); } } } String content =
+	 * this.commandLineHelpGenerator.generateGenericCapabilities(metadata, appUrl); return
+	 * builder.eTag(createUniqueId(content)).body(content); }
+	 */
 
 	@RequestMapping(path = { "/", "/bf/metadata/client" }, produces = "application/hal+json")
 	public ResponseEntity<String> serviceCapabilitiesHal() {

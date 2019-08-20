@@ -39,7 +39,6 @@ public class BfMetadataElement extends DefaultMetadataElement {
 		this(id, null, defaultValue);
 	}
 
-
 	public DefaultMetadataElement getBindVersion() {
 		return bindVersion;
 	}

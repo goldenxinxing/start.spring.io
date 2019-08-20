@@ -1,6 +1,9 @@
+import Cookies from 'universal-cookie'
 import React from 'react'
 
 import { IconCaretDown, IconGithub, IconSpring, IconTwitter } from '../icons'
+
+const cookies = new Cookies();
 
 class QuickLinks extends React.Component {
   constructor(props) {
@@ -11,6 +14,8 @@ class QuickLinks extends React.Component {
 
     this.state = {
       help: false,
+      pageLang: false,
+      lang: cookies.get('lang'),
     }
   }
 
@@ -29,6 +34,7 @@ class QuickLinks extends React.Component {
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       this.setState({ help: false })
+      this.setState({ pageLang: false })
     }
   }
 
@@ -59,6 +65,51 @@ class QuickLinks extends React.Component {
         </li>*/}
         <li>
           <a
+              href='/'
+              className='dropdown'
+              tabIndex='-1'
+              onClick={e => {
+                e.preventDefault()
+                this.setState({ pageLang: !this.state.pageLang })
+              }}
+          >{this.state.lang === 'en' ? 'language':'语言'}
+            <IconCaretDown className='caret' />
+          </a>
+          {this.state.pageLang && (
+              <ul className='dropdown-menu' ref={this.setWrapperRef}>
+                <li>
+                  <a
+                      id='ql-lang-projects'
+                      target=''
+                      rel='noopener noreferrer'
+                      href='/?lang=zh'
+                      tabIndex='-1'
+                      onClick={() => {
+                        this.setState({ pageLang: false })
+                      }}
+                  >
+                    中文
+                  </a>
+                </li>
+                <li>
+                  <a
+                      id='ql-lang-projects'
+                      target=''
+                      rel='noopener noreferrer'
+                      href='/?lang=en'
+                      tabIndex='-1'
+                      onClick={() => {
+                        this.setState({ pageLang: false })
+                      }}
+                  >
+                    English
+                  </a>
+                </li>
+              </ul>
+          )}
+        </li>
+        <li>
+          <a
             href='/'
             className='dropdown'
             tabIndex='-1'
@@ -68,7 +119,7 @@ class QuickLinks extends React.Component {
             }}
           >
             <IconSpring />
-            Help
+            {this.state.lang === 'en' ? 'Help':'帮助文档'}
             <IconCaretDown className='caret' />
           </a>
           {this.state.help && (
@@ -84,7 +135,7 @@ class QuickLinks extends React.Component {
                       this.setState({ help: false })
                     }}
                 >
-                  Base Framework Projects
+                  {this.state.lang === 'en' ? 'Base Framework Projects':'基础库项目'}
                 </a>
               </li>
               <li>
@@ -98,7 +149,7 @@ class QuickLinks extends React.Component {
                     this.setState({ help: false })
                   }}
                 >
-                  Spring Projects
+                  {this.state.lang === 'en' ? 'Spring Projects':'Spring项目'}
                 </a>
               </li>
               <li>
@@ -112,7 +163,7 @@ class QuickLinks extends React.Component {
                     this.setState({ help: false })
                   }}
                 >
-                  Spring Guides
+                  {this.state.lang === 'en' ? 'Spring Guides':'Spring指南'}
                 </a>
               </li>
               <li>
@@ -126,7 +177,7 @@ class QuickLinks extends React.Component {
                     this.setState({ help: false })
                   }}
                 >
-                  What's New With Spring
+                  {this.state.lang === 'en' ? 'What\'s New With Spring':'Spring新特性'}
                 </a>
               </li>
               <li>
@@ -140,7 +191,7 @@ class QuickLinks extends React.Component {
                     this.setState({ help: false })
                   }}
                 >
-                  Migrate from 1.5 => 2.0
+                  {this.state.lang === 'en' ? 'Migrate from 1.5 => 2.0':'1.5 => 2.0迁移指南'}
                 </a>
               </li>
             </ul>

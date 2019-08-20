@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie'
 import FileSaver from 'file-saver'
 import JSZip from 'jszip'
 import React from 'react'
@@ -25,6 +26,7 @@ import { createTree, findRoot } from '../components/utils/Zip'
 import { isInRange } from '../components/utils/versions'
 
 const WEIGHT_DEFAULT = 50
+const cookies = new Cookies();
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -37,8 +39,8 @@ class IndexPage extends React.Component {
       symb: 'Ctrl',
       groups: {},
       exploreModal: false,
+      lang: cookies.get('lang'),
     }
-
     this.keyMap = {
       SUBMIT: ['command+enter', 'ctrl+enter'],
       EXPLORE: ['ctrl+space'],
@@ -399,7 +401,7 @@ class IndexPage extends React.Component {
             name='fakepasswordremembered'
           />
           <div className='colset'>
-            <div className='left'>Project</div>
+            <div className='left'>{this.state.lang === 'en' ? 'Project':'项目类型'}</div>
             <div className='right'>
               {get(this.state, 'complete') ? (
                 <RadioGroup
@@ -416,7 +418,7 @@ class IndexPage extends React.Component {
             </div>
           </div>
           <div className='colset'>
-            <div className='left'>Language</div>
+            <div className='left'>{this.state.lang === 'en' ? 'Language':'语言'}</div>
             <div className='right'>
               {get(this.state, 'complete') ? (
                 <RadioGroup
@@ -433,7 +435,7 @@ class IndexPage extends React.Component {
             </div>
           </div>
           <div className='colset'>
-            <div className='left'>Base Framework</div>
+            <div className='left'>{this.state.lang === 'en' ? 'Base Framework':'基础库'}</div>
             <div className='right'>
               {get(this.state, 'complete') ? (
                   <RadioGroup
@@ -452,7 +454,7 @@ class IndexPage extends React.Component {
             </div>
           </div>
           <div className='colset'>
-            <div className='left'>Spring Boot<div className="read-only">(read only)</div></div>
+            <div className='left'>Spring Boot<div className="read-only">({this.state.lang === 'en' ? 'read only':'不可点击'})</div></div>
             <div className='right'>
               {get(this.state, 'complete') ? (
                 <RadioGroup
@@ -470,7 +472,7 @@ class IndexPage extends React.Component {
             </div>
           </div>
           <div className='colset'>
-            <div className='left'>Project Metadata</div>
+            <div className='left'>{this.state.lang === 'en' ? 'Project Metadata':'项目信息'}</div>
             <div className='right right-md'>
               {get(this.state, 'complete') ? (
                 <>
@@ -612,7 +614,7 @@ class IndexPage extends React.Component {
           </div>
           <div className='colset'>
             <div className='left'>
-              <div className='sticky-label'>Dependencies</div>
+              <div className='sticky-label'>{this.state.lang === 'en' ? 'Dependencies':'依赖'}</div>
             </div>
             <div
               className={`dependencies-box ${
@@ -652,7 +654,7 @@ class IndexPage extends React.Component {
                       {selected > 0 && (
                         <>
                           <strong>
-                            <span>{selected}</span> selected
+                            <span>{selected}</span> {this.state.lang === 'en' ? 'selected':'条已选'}
                           </strong>
                         </>
                       )}
@@ -665,7 +667,7 @@ class IndexPage extends React.Component {
                           className='search-label'
                           htmlFor='input-quicksearch'
                         >
-                          Search dependencies to add
+                          {this.state.lang === 'en' ? 'Search dependencies to add':'搜索依赖并添加'}
                         </label>
                         <Typehead
                           boot={this.state.boot}
@@ -676,7 +678,7 @@ class IndexPage extends React.Component {
                         />
                       </div>
                       <div className='column'>
-                        <label>Selected dependencies</label>
+                        <label>{this.state.lang === 'en' ? 'Selected dependencies':'已选依赖'}</label>
                         {this.state.dependencies.length > 0 ? (
                           <>
                             <List
@@ -687,7 +689,7 @@ class IndexPage extends React.Component {
                           </>
                         ) : (
                           <div className='search-no-selected'>
-                            No dependency selected
+                            {this.state.lang === 'en' ? 'No dependency selected':'未选择依赖'}
                           </div>
                         )}
                       </div>
@@ -724,9 +726,9 @@ class IndexPage extends React.Component {
                         type='submit'
                         id='generate-project'
                       >
-                        Generate{' '}
+                        {this.state.lang === 'en' ? 'Generate':'生成'}{' '}
                         <span className='desktop-only'>
-                          the project - {this.state.symb} + ⏎
+                          {this.state.lang === 'en' ? 'the project':'项目'} - {this.state.symb} + ⏎
                         </span>
                       </button>
                       <button
@@ -735,9 +737,9 @@ class IndexPage extends React.Component {
                         onClick={this.onExplore}
                         id='explore-project'
                       >
-                        Explore{' '}
+                        {this.state.lang === 'en' ? 'Explore':'预览'}{' '}
                         <span className='desktop-only'>
-                          the project - Ctrl + Space
+                          {this.state.lang === 'en' ? 'the project':'项目'}  - Ctrl + Space
                         </span>
                       </button>
                     </>

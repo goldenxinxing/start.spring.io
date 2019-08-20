@@ -64,7 +64,7 @@ public final class BfInitializrMetadataBuilder {
 	 * @return this instance
 	 */
 	public BfInitializrMetadataBuilder withBfInitializrProperties(BfInitializrProperties properties,
-                                                              boolean mergeConfiguration) {
+			boolean mergeConfiguration) {
 		if (mergeConfiguration) {
 			this.configuration.merge(properties);
 		}

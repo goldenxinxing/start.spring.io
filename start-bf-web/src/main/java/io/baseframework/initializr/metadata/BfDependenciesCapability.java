@@ -40,8 +40,8 @@ public class BfDependenciesCapability extends ServiceCapability<List<DependencyG
 	private final Map<String, Dependency> indexedDependencies = new LinkedHashMap<>();
 
 	public BfDependenciesCapability() {
-		super("baseFrameworkDependencies", ServiceCapabilityType.HIERARCHICAL_MULTI_SELECT, "baseFramework Project dependencies",
-				"dependency identifiers (comma-separated)");
+		super("baseFrameworkDependencies", ServiceCapabilityType.HIERARCHICAL_MULTI_SELECT,
+				"baseFramework Project dependencies", "dependency identifiers (comma-separated)");
 	}
 
 	@Override

@@ -54,7 +54,7 @@ public class BfProjectGenerationInvoker {
 	private transient Map<Path, List<Path>> temporaryFiles = new LinkedHashMap<>();
 
 	public BfProjectGenerationInvoker(ApplicationContext parentApplicationContext,
-                                      ApplicationEventPublisher eventPublisher, BfProjectRequestToDescriptionConverter converter) {
+			ApplicationEventPublisher eventPublisher, BfProjectRequestToDescriptionConverter converter) {
 		this.parentApplicationContext = parentApplicationContext;
 		this.eventPublisher = eventPublisher;
 		this.converter = converter;
@@ -67,7 +67,8 @@ public class BfProjectGenerationInvoker {
 	 * @return the {@link ProjectGenerationResult}
 	 */
 	public BfProjectGenerationResult invokeProjectStructureGeneration(BfProjectRequest request) {
-		BfInitializrMetadata metadata = (BfInitializrMetadata) this.parentApplicationContext.getBean(InitializrMetadataProvider.class).get();
+		BfInitializrMetadata metadata = (BfInitializrMetadata) this.parentApplicationContext
+				.getBean(InitializrMetadataProvider.class).get();
 		try {
 			ProjectDescription projectDescription = this.converter.convert(request, metadata);
 			ProjectGenerator projectGenerator = new ProjectGenerator((
@@ -98,7 +99,8 @@ public class BfProjectGenerationInvoker {
 	 * @return the generated build content
 	 */
 	public byte[] invokeBuildGeneration(BfProjectRequest request) {
-		BfInitializrMetadata metadata = (BfInitializrMetadata) this.parentApplicationContext.getBean(InitializrMetadataProvider.class).get();
+		BfInitializrMetadata metadata = (BfInitializrMetadata) this.parentApplicationContext
+				.getBean(InitializrMetadataProvider.class).get();
 		try {
 			ProjectDescription projectDescription = this.converter.convert(request, metadata);
 			ProjectGenerator projectGenerator = new ProjectGenerator((

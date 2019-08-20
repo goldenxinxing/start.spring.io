@@ -51,4 +51,5 @@ public class BfInitializrProperties extends InitializrProperties {
 	public List<DefaultMetadataElement> getBaseFrameworkVersions() {
 		return baseFrameworkVersions;
 	}
+
 }

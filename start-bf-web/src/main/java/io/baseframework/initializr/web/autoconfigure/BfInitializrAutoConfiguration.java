@@ -125,11 +125,10 @@ public class BfInitializrAutoConfiguration {
 	@ConditionalOnWebApplication
 	static class InitializrWebConfiguration {
 
-		/*@Bean
-		InitializrWebConfig initializrWebConfig() {
-			return new InitializrWebConfig();
-		}
-*/
+		/*
+		 * @Bean InitializrWebConfig initializrWebConfig() { return new
+		 * InitializrWebConfig(); }
+		 */
 		@Bean
 		@ConditionalOnMissingBean
 		BfMainController initializrBfMainController(InitializrMetadataProvider metadataProvider,
@@ -142,8 +141,8 @@ public class BfInitializrAutoConfiguration {
 		@Bean
 		@ConditionalOnMissingBean
 		BfProjectGenerationInvoker bfProjectGenerationInvoker(ApplicationContext applicationContext,
-															ApplicationEventPublisher eventPublisher,
-															  BfProjectRequestToDescriptionConverter projectRequestToDescriptionConverter) {
+				ApplicationEventPublisher eventPublisher,
+				BfProjectRequestToDescriptionConverter projectRequestToDescriptionConverter) {
 			return new BfProjectGenerationInvoker(applicationContext, eventPublisher,
 					projectRequestToDescriptionConverter);
 		}
