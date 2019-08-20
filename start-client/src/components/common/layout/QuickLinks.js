@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie'
 import React from 'react'
+import get from 'lodash.get'
 
 import { IconCaretDown, IconGithub, IconSpring, IconTwitter } from '../icons'
 
@@ -11,11 +12,14 @@ class QuickLinks extends React.Component {
 
     this.setWrapperRef = this.setWrapperRef.bind(this)
     this.handleClickOutside = this.handleClickOutside.bind(this)
-
+    const min = 1;
+    const max = 100;
+    const rand = min + Math.random() * (max - min);
     this.state = {
       help: false,
       pageLang: false,
       lang: cookies.get('lang'),
+      random: rand,
     }
   }
 
@@ -82,7 +86,7 @@ class QuickLinks extends React.Component {
                       id='ql-lang-projects'
                       target=''
                       rel='noopener noreferrer'
-                      href='/?lang=zh'
+                      href={'/?lang=zh&random=' + get(this.state, 'random')}
                       tabIndex='-1'
                       onClick={() => {
                         this.setState({ pageLang: false })
@@ -96,7 +100,7 @@ class QuickLinks extends React.Component {
                       id='ql-lang-projects'
                       target=''
                       rel='noopener noreferrer'
-                      href='/?lang=en'
+                      href={'/?lang=en&random=' + get(this.state, 'random')}
                       tabIndex='-1'
                       onClick={() => {
                         this.setState({ pageLang: false })
