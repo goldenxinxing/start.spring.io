@@ -30,7 +30,7 @@
       "apiDocUrl": "https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/api/",
       "groupId": "com.megvii.framework",
       "artifactId": "base-framework",
-      "version": "1.0.2.RELEASE",
+      "version": "1.0.2.beta",
       "snapshot": false,
       "current": true,
       "preRelease": false,
