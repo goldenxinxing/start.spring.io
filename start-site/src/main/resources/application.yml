@@ -193,96 +193,114 @@ initializr:
           starter: true
     - name: starters
       content:
-          - name: Message Starter
-            id: base-message-starter
-            groupId: com.megvii.framework
-            artifactId: base-message-starter
-            scope: runtime
-            description: 消息组件，提供消息国际化功能，包括传统的内容及validator组件的验证信息国际化.
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/6l4tBQ
-          - name: Format Starter
-            id: base-format-starter
-            groupId: com.megvii.framework
-            artifactId: base-format-starter
-            scope: runtime
-            description: 格式化组件，针对正常api输出和异常进行统一控制，返回最终规范格式.
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/n5MaBQ
-          - name: Log Starter
-            id: base-log-starter
-            groupId: com.megvii.framework
-            artifactId: base-log-starter
-            scope: runtime
-            description: 日志组件，提供级别动态调整，基于注解方式，进行日志相关配置.
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/6BjRB
-          - name: Monitor Starter
-            id: base-monitor-starter
-            groupId: com.megvii.framework
-            artifactId: base-monitor-starter
-            scope: runtime
-            description: 提供健康检查接口及扩展机制，默认实现有ftp、kafka、http、es、jms、等
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/3xjRB
-          - name: Mybatis Starter
-            id: base-mybatis-starter
-            groupId: com.megvii.framework
-            artifactId: base-mybatis-starter
-            scope: runtime
-            description: mybatis组件，引入tk-mybatis和分页组件pagehelper
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/odqBB
-          - name: Redis Starter
-            id: base-redis-starter
-            groupId: com.megvii.framework
-            artifactId: base-redis-starter
-            scope: runtime
-            description: redis组件，将redis、redisson配置统一化
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/OjoMBg
-          - name: Redisson Starter
-            id: base-redisson-starter
-            groupId: com.megvii.framework
-            artifactId: base-redisson-starter
-            scope: runtime
-            description: 基于redisson的分布式锁功能组件
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/m9beB
-          - name: Scheduled Starter
-            id: base-scheduled-starter
-            groupId: com.megvii.framework
-            artifactId: base-scheduled-starter
-            scope: runtime
-            description: Scheduled组件，提供对于分布式场景、单体场景下支持
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/6gUMBg
-          - name: Swagger Starter
-            id: base-swagger-starter
-            groupId: com.megvii.framework
-            artifactId: base-swagger-starter
-            scope: runtime
-            description: swagger组件，提供swagger的通用配置，引入即可使用swagger
-            starter: true
-            links:
-              - rel: reference
-                href: https://wiki.megvii-inc.com/x/dLt8BQ
+        - name: Message Starter
+          id: base-message-starter
+          groupId: com.megvii.framework
+          artifactId: base-message-starter
+          scope: runtime
+          description: 消息组件，提供消息国际化功能，包括传统的内容及validator组件的验证信息国际化.
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/6l4tBQ
+        - name: elastic Starter
+          id: base-elastic-starter
+          groupId: com.megvii.framework
+          artifactId: base-elastic-starter
+          scope: runtime
+          description: es组件，提供ssl自动配置，异步删除等便捷使用
+          starter: true
+        - name: Format Starter
+          id: base-format-starter
+          groupId: com.megvii.framework
+          artifactId: base-format-starter
+          scope: runtime
+          description: 格式化组件，针对正常api输出和异常进行统一控制，返回最终规范格式.
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/n5MaBQ
+        - name: Log Starter
+          id: base-log-starter
+          groupId: com.megvii.framework
+          artifactId: base-log-starter
+          scope: runtime
+          description: 日志组件，提供级别动态调整，基于注解方式，进行日志相关配置.
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/6BjRB
+        - name: Monitor Starter
+          id: base-monitor-starter
+          groupId: com.megvii.framework
+          artifactId: base-monitor-starter
+          scope: runtime
+          description: 提供健康检查接口及扩展机制，默认实现有ftp、kafka、http、es、jms、等
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/3xjRB
+        - name: Mybatis Starter
+          id: base-mybatis-starter
+          groupId: com.megvii.framework
+          artifactId: base-mybatis-starter
+          scope: runtime
+          description: mybatis组件，引入tk-mybatis和分页组件pagehelper
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/odqBB
+        - name: Redis Starter
+          id: base-redis-starter
+          groupId: com.megvii.framework
+          artifactId: base-redis-starter
+          scope: runtime
+          description: redis组件，将redis、redisson配置统一化
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/OjoMBg
+        - name: Redisson Starter
+          id: base-redisson-starter
+          groupId: com.megvii.framework
+          artifactId: base-redisson-starter
+          scope: runtime
+          description: 基于redisson的分布式锁功能组件
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/m9beB
+        - name: Scheduled Starter(指定执行权)
+          id: base-scheduled-starter
+          groupId: com.megvii.framework
+          artifactId: base-scheduled-starter
+          scope: runtime
+          description: Scheduled组件，提供对于分布式场景、单体场景下支持，该组件支持配置主模式，即多实例部署时，由配置的优先级进行决定执行权
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/6gUMBg
+        - name: Scheduled Starter(争用执行权)
+          id: base-clusterscheduled-starter
+          groupId: com.megvii.framework
+          artifactId: base-clusterscheduled-starter
+          scope: runtime
+          description: Scheduled组件，提供对于分布式场景、单体场景下支持，该组件支持争用模式，即多实例部署时，抢占式获取执行权
+          starter: true
+          compatibilityRange: 2.2.6.RELEASE
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/6gUMBg
+        - name: Swagger Starter
+          id: base-swagger-starter
+          groupId: com.megvii.framework
+          artifactId: base-swagger-starter
+          scope: runtime
+          description: swagger组件，提供swagger的通用配置，引入即可使用swagger
+          starter: true
+          links:
+            - rel: reference
+              href: https://wiki.megvii-inc.com/x/dLt8BQ
     - name: Foundation
       content:
         - name: Utils
@@ -291,7 +309,7 @@ initializr:
           artifactId: base-foundation-utils
           scope: runtime
           description: 提供常用工具类
-          starter: true
+          starter: false
           links:
             - rel: reference
               href: https://wiki.megvii-inc.com/pages/viewpage.action?pageId=85627803
@@ -301,10 +319,56 @@ initializr:
           artifactId: base-foundation-7z-utils
           scope: runtime
           description: 7z解压缩工具，强大的解压缩能力，使解压缩更加健壮，需要在运行环境安装7z环境
-          starter: true
+          starter: false
           links:
             - rel: reference
               href:
+    - name: Common library
+      content:
+        - name: score-transfer
+          id: score-transfer
+          groupId: com.megvii.framework
+          artifactId: score-transfer
+          scope: runtime
+          description: 针对安防场景中解析阈值和分数的转换工具.
+          starter: false
+    - name: core-api
+      content:
+        - name: core-api-shared
+          id: core-api-shared
+          groupId: com.megvii.framework
+          artifactId: core-api-shared
+          scope: runtime
+          description: core-api-shared
+          starter: false
+        - name: core-api-190915
+          id: core-api-190915
+          groupId: com.megvii.framework
+          artifactId: core-api-190915
+          scope: runtime
+          description: core-api-190915
+          starter: false
+        - name: core-api-191115
+          id: core-api-191115
+          groupId: com.megvii.framework
+          artifactId: core-api-191115
+          scope: runtime
+          description: core-api-191115
+          starter: false
+        - name: core-api-202002
+          id: core-api-202002
+          groupId: com.megvii.framework
+          artifactId: core-api-202002
+          scope: runtime
+          description: core-api-202002
+          starter: false
+        - name: core-api-202005
+          id: core-api-202005
+          groupId: com.megvii.framework
+          artifactId: core-api-202005
+          scope: runtime
+          description: core-api-202005
+          starter: false
     - name: Developer Tools
       content:
         - name: Spring Boot DevTools

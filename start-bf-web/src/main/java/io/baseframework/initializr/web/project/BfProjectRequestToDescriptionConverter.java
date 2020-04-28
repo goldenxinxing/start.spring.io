@@ -29,6 +29,7 @@ import io.spring.initializr.metadata.Type;
 import io.spring.initializr.metadata.support.MetadataBuildItemMapper;
 import io.spring.initializr.web.project.InvalidProjectRequestException;
 import io.spring.initializr.web.project.ProjectRequest;
+import org.springframework.util.SocketUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -51,6 +52,8 @@ public class BfProjectRequestToDescriptionConverter {
 		validate(request, metadata);
 		String springBootVersion = getSpringBootVersion(request, metadata);
 		String baseFrameworkVersion = getBaseFrameworkVersion(request, metadata);
+		Version parent = Version.parse(baseFrameworkVersion);
+		parent.setOrigin(baseFrameworkVersion);
 		List<Dependency> resolvedDependencies = getResolvedDependencies(request, springBootVersion, metadata);
 		validateDependencyRange(springBootVersion, resolvedDependencies);
 		ProjectDescription description = new ProjectDescription();
@@ -65,7 +68,7 @@ public class BfProjectRequestToDescriptionConverter {
 		description.setName(getName(request, metadata));
 		description.setPackageName(getPackageName(request, metadata));
 		description.setPackaging(Packaging.forId(request.getPackaging()));
-		description.setParentVersion(Version.parse(baseFrameworkVersion));
+		description.setParentVersion(parent);
 		description.setPlatformVersion(Version.parse(springBootVersion));
 		description.setVersion(determineValue(request.getVersion(), () -> metadata.getVersion().getContent()));
 		resolvedDependencies.forEach((dependency) -> description.addDependency(dependency.getId(),
@@ -241,5 +244,4 @@ public class BfProjectRequestToDescriptionConverter {
 			return dependency.resolve(requestedVersion);
 		}).collect(Collectors.toList());
 	}
-
 }
